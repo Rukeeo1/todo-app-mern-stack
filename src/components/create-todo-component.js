@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 class CreateTodo extends Component {
   constructor(props) {
     super(props);
+    //bind the methods to the object...
     this.onChangeTodoDescription = this.onChangeTodoDescription.bind(this);
     this.onChangeTodoPriority = this.onChangeTodoPriority.bind(this);
     this.onChangeTodoResponsible = this.onChangeTodoResponsible.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-
+    //set state
     this.state = {
       todo_description: '',
       todo_responsible: '',
@@ -15,17 +16,20 @@ class CreateTodo extends Component {
       todo_completed: false
     };
   }
+  //happens on each change of the input field
   onChangeTodoDescription(e) {
     this.setState({
       todo_description: e.target.value
     });
   }
+  //happens on each change of the responsible input field
   onChangeTodoResponsible(e) {
     this.setState({
       todo_responsible: e.target.value
     });
   }
 
+  //on changed of the radio button....
   onChangeTodoPriority(e) {
     this.setState({
       todo_priority: e.target.value
@@ -34,10 +38,6 @@ class CreateTodo extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    console.log(this.state.todo_description);
-    console.log(this.state.todo_responsible);
-    console.log(this.state.todo_priority);
-    console.log(this.state.todo_completed);
     this.setState({
       todo_description: '',
       todo_responsible: '',
@@ -108,10 +108,13 @@ class CreateTodo extends Component {
               />
               <label className="form-check-label">High</label>
             </div>
-          
           </div>
           <div className="form-group">
-      <input type="submit" value="Create Todo" className="btn btn-primary"></input>
+            <input
+              type="submit"
+              value="Create Todo"
+              className="btn btn-primary"
+            />
           </div>
         </form>
       </div>
