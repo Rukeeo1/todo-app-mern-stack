@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class CreateTodo extends Component {
   constructor(props) {
@@ -38,6 +39,24 @@ class CreateTodo extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+
+    const newTodo = {
+      todo_description: this.state.todo_description,
+      todo_responsible: this.state.todo_responsible,
+      todo_priority: this.state.todo_priority,
+      todo_completed: this.state.todo_completed
+    };
+
+    axios//you see the local host there apparrently that's how hard it is 
+      .post('http://localhost:3000/todos', newTodo)
+      .then(response => {
+        console.log(response.data)
+        alert('response');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
     this.setState({
       todo_description: '',
       todo_responsible: '',
