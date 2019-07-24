@@ -17,6 +17,6 @@ let todoSchema = new mongoose.Schema({
 });
 
 //create a model from schema...
-const TodoModel = mongoose.model('Todo',todoSchema);
+const TodoModel = mongoose.model('Todo', todoSchema);
 
 exports.TodoModel = TodoModel;
