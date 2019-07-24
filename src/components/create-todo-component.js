@@ -47,10 +47,10 @@ class CreateTodo extends Component {
       todo_completed: this.state.todo_completed
     };
 
-    axios//you see the local host there apparrently that's how hard it is 
+    axios //you see the local host there apparrently that's how hard it is
       .post('http://localhost:3000/todos', newTodo)
       .then(response => {
-        console.log(response.data)
+        console.log(response.data);
         alert('response');
       })
       .catch(err => {
