@@ -5,6 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const router = require('./routes/route');
 const PORT = process.env.PORT || 3000; //make heroku choose what ever option it has
+const path = require('path')
 // const todoRouter = require('./routes/route');
 
 app.use(cors()); //enable cors
