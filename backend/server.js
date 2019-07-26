@@ -14,7 +14,7 @@ app.use(bodyParser.json()); //body parser
 
 //connect to mongo db....
 mongoose
-  .connect(process.env.MONGO_URI || 'mongodb://localhost/todos-mern-stack')
+  .connect('mongodb+srv://rukee-todo-mern:552377@cluster0-vebe6.mongodb.net/test?retryWrites=true&w=majority')
   .then(() => {
     console.log('connected to mongo db');
   })
