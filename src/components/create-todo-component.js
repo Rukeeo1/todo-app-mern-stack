@@ -50,7 +50,6 @@ class CreateTodo extends Component {
     axios //you see the local host there apparrently that's how hard it is
       .post('http://localhost:3000/todos', newTodo)
       .then(response => {
-        console.log(response.data);
         alert('response');
       })
       .catch(err => {

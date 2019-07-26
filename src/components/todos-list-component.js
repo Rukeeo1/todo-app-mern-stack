@@ -6,10 +6,9 @@ const Todo = (
   props //this is functional component...
 ) => (
   <tr>
-    {console.log(props)}
-    <td>{props.todo.todo_description}</td>
-    <td>{props.todo.todo_responsible}</td>
-    <td>{props.todo.todo_priority}.</td>
+    <td className={props.todo.todo_completed ? 'completed' :''}>{props.todo.todo_description}</td>
+    <td className={props.todo.todo_completed ? 'completed' :''} >{props.todo.todo_responsible}</td>
+    <td className={props.todo.todo_completed ? 'completed' :''} >{props.todo.todo_priority}.</td>
     <td>
       <Link to={'/edit/' + props.todo._id}>Edit</Link>
     </td>
@@ -33,6 +32,17 @@ class TodoList extends Component {
       .catch(error => {
         console.log(error);
       });
+  }
+
+  componentDidUpdate(){
+    axios
+    .get('http://localhost:3000/todos')
+    .then(response => {
+      this.setState({ todo: response.data });
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   todoList() {
